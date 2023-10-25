@@ -50,8 +50,6 @@ function all_checks() {
 
 ########OPEN MEDIA VAULT ############
 function install_omv() {
- echo ""
-	echo "Memory usage on ${server_name} is: "
 	wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash	
 }
 
@@ -82,7 +80,7 @@ $(ColorGreen '2)') CPU load
 $(ColorGreen '3)') Number of TCP connections 
 $(ColorGreen '4)') Kernel version
 $(ColorGreen '5)') Check All
-$(ColorGreen '6)') package install
+$(ColorGreen '6)') Install OpenMediaVault
 $(ColorGreen '0)') Exit
 $(ColorBlue 'Choose an option:') "
         read a
