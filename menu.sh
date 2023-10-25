@@ -48,6 +48,14 @@ function all_checks() {
 	kernel_check
 }
 
+########OPEN MEDIA VAULT ############
+function install_omv() {
+ echo ""
+	echo "Memory usage on ${server_name} is: "
+	wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash	
+}
+
+
 ##
 # Color  Variables
 ##
@@ -84,7 +92,7 @@ $(ColorBlue 'Choose an option:') "
 	        3) tcp_check ; menu ;;
 	        4) kernel_check ; menu ;;
 	        5) all_checks ; menu ;;
-        6) menu2 ;;
+        6) install_omv ; menu ;;
 		0) exit 0 ;;
 		*) echo -e $red"Wrong option."$clear; WrongCommand;;
         esac
