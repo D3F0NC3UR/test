@@ -52,7 +52,13 @@ function all_checks() {
 function install_omv() {
 	wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash	
 }
+####################################
 
+########SYSZ#########################
+function install_sysz() {
+wget -O ~/.bin/sysz https://github.com/joehillen/sysz/releases/latest/download/sysz
+chmod +x ~/.bin/sysz
+}
 
 ##
 # Color  Variables
