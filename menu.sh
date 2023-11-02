@@ -87,6 +87,7 @@ $(ColorGreen '3)') Number of TCP connections
 $(ColorGreen '4)') Kernel version
 $(ColorGreen '5)') Check All
 $(ColorGreen '6)') Install OpenMediaVault
+$(ColorGreen '7)') Install SYSZ
 $(ColorGreen '0)') Exit
 $(ColorBlue 'Choose an option:') "
         read a
@@ -97,6 +98,7 @@ $(ColorBlue 'Choose an option:') "
 	        4) kernel_check ; menu ;;
 	        5) all_checks ; menu ;;
         6) install_omv ; menu ;;
+        7) install_sysz; menu ;;
 		0) exit 0 ;;
 		*) echo -e $red"Wrong option."$clear; WrongCommand;;
         esac
