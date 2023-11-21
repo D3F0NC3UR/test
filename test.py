@@ -1,33 +1,60 @@
-# Import the necessary packages
+import sys
+
 from consolemenu import *
 from consolemenu.items import *
 
-# Create the menu
-menu = ConsoleMenu("Title", "Subtitle")
 
-# Create some items
+def input_handler():
+    pu = PromptUtils(Screen())
+    # PromptUtils.input() returns an InputResult
+    result = pu.input("Enter an input")
+    pu.println("\nYou entered:", result.input_string, "\n")
+    pu.enter_to_continue()
 
-# MenuItem is the base class for all items, it doesn't do anything when selected
-menu_item = MenuItem("Menu Item")
 
-# A FunctionItem runs a Python function when selected
-function_item = FunctionItem("Call a Python function", input, ["Enter an input"])
+def main():
+    # Create the root menu
+    menu = ConsoleMenu("Root Menu", "This is the Root Menu Subtitle")
 
-# A CommandItem runs a console command
-command_item = CommandItem("Run a console command",  "touch hello.txt")
+    item1 = MenuItem("Item 1")
 
-# A SelectionMenu constructs a menu from a list of strings
-selection_menu = SelectionMenu(["item1", "item2", "item3"])
+    # Create a menu item that calls a function
+    function_item = FunctionItem("Fun item", input_handler)
 
-# A SubmenuItem lets you add a menu (the selection_menu above, for example)
-# as a submenu of another menu
-submenu_item = SubmenuItem("Submenu item", selection_menu, menu)
+    # Create a menu item that calls a system command, based on OS type
+    if sys.platform.startswith('win'):
+        command_item = CommandItem("Command", 'cmd /c \"echo this is a shell. Press enter to continue." && set /p=\"')
+    else:
+        command_item = CommandItem("Command", 'sh -c \'echo "this is a shell. Press enter to continue."; read\'')
 
-# Once we're done creating them, we just add the items to the menu
-menu.append_item(menu_item)
-menu.append_item(function_item)
-menu.append_item(command_item)
-menu.append_item(submenu_item)
+    # Create a submenu using a Selection Menu, which takes a list of strings to create the menu items.
+    submenu = SelectionMenu(["item1", "item2", "item3"], title="Selection Menu",
+                            subtitle="These menu items return to the previous menu")
 
-# Finally, we call show to show the menu and allow the user to interact
-menu.show()
+    # Create the menu item that opens the Selection submenu
+    submenu_item = SubmenuItem("Submenu item", submenu=submenu)
+    submenu_item.set_menu(menu)
+
+    # Create a second submenu, but this time use a standard ConsoleMenu instance
+    submenu_2 = ConsoleMenu("Another Submenu Title", "Submenu subtitle.")
+    function_item_2 = FunctionItem("Fun item", Screen().input, ["Enter an input: "])
+    item2 = MenuItem("Another Item")
+    submenu_2.append_item(function_item_2)
+    submenu_2.append_item(item2)
+    submenu_item_2 = SubmenuItem("Another submenu", submenu=submenu_2)
+    submenu_item_2.set_menu(menu)
+
+    # Add all the items to the root menu
+    menu.append_item(item1)
+    menu.append_item(function_item)
+    menu.append_item(command_item)
+    menu.append_item(submenu_item)
+    menu.append_item(submenu_item_2)
+
+    # Show the menu
+    menu.start()
+    menu.join()
+
+
+if __name__ == "__main__":
+    main()
