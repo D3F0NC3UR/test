@@ -12,32 +12,32 @@ def afficher_sous_menu_bash():
  print("3. Retour au menu principal")
 
 def executer_script_bash(script):
-os.system(script)
+ os.system(script)
 
 def executer_commande_terminal(commande):
-os.system(commande)
+ os.system(commande)
 
 def install_menu():
-print("Sous-menu - Commandes prédéfinies:")
-print("1. install")
-print("2. Commande 2")
-print("3. Retour au menu principal")
+ print("Sous-menu - Commandes prédéfinies:")
+ print("1. install")
+ print("2. Commande 2")
+ print("3. Retour au menu principal")
 
 def main():
-while True:
-afficher_menu_principal()
-choix_principal = input("Sélectionnez une option : ")
+ while True:
+  afficher_menu_principal()
+  choix_principal = input("Sélectionnez une option : ")
 
 if choix_principal == "1":
-while True:
-afficher_sous_menu_bash()
-choix_bash = input("Sélectionnez un script Bash : ")
+ while True:
+  afficher_sous_menu_bash()
+  choix_bash = input("Sélectionnez un script Bash : ")
 
 if choix_bash == "1":
-executer_script_bash("bash_script_1.sh")
+ executer_script_bash("bash_script_1.sh")
 
 elif choix_bash == "2":
-executer_script_bash("bash_script_2.sh")
+ executer_script_bash("bash_script_2.sh")
 
 elif choix_bash == "3":
 break
