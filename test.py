@@ -40,34 +40,34 @@ elif choix_bash == "2":
  executer_script_bash("bash_script_2.sh")
 
 elif choix_bash == "3":
-break
+ break
 
 else :
-print("Choix invalide. Veuillez sélectionner une option valide.")
+ print("Choix invalide. Veuillez sélectionner une option valide.")
 
 elif choix_principal == "2":
-while True:
-install_menu()
-choix_commande = input("Sélectionnez une commande prédéfinie : ")
+ while True:
+  install_menu()
+  choix_commande = input("Sélectionnez une commande prédéfinie : ")
 
 if choix_commande == "1":
-executer_commande_terminal("sudo apt update && apt upgrade -y && apt install git")
+ executer_commande_terminal("sudo apt update && apt upgrade -y && apt install git")
 
 elif choix_commande == "2":
-executer_commande_terminal("commande_2")
+ executer_commande_terminal("commande_2")
 
 elif choix_commande == "3":
-break
+ break
 
 else :
-print("Choix invalide. Veuillez sélectionner une option valide.")
+ print("Choix invalide. Veuillez sélectionner une option valide.")
 
 elif choix_principal == "3":
-print("bye !")
-break
+ print("bye !")
+ break
 
 else :
-print("Choix invalide. Veuillez sélectionner une option valide.")
+ print("Choix invalide. Veuillez sélectionner une option valide.")
 
 if __name__ == "__main__":
-main()
+ main()
