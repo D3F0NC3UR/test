@@ -36,7 +36,8 @@ def main():
                                     if choix_bash == "1":
                                         executer_script_bash("bash_script_1.sh")
                                         
-                                        elif choix_bash == "2":
+elif 
+ choix_bash == "2":
                                             executer_script_bash("bash_script_2.sh")
                                             
                                             elif choix_bash == "3":
