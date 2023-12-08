@@ -1,45 +1,0 @@
-[2023-10-25 05:30:48-0400] [omvinstall] version :: 2.0.0
-[2023-10-25 05:30:48-0400] [omvinstall] Starting ...
-[2023-10-25 05:30:48-0400] [omvinstall] Current / permissions = 755
-mode of '/' retained as 0755 (rwxr-xr-x)
-[2023-10-25 05:30:48-0400] [omvinstall] New / permissions = 755
-[2023-10-25 05:30:48-0400] [omvinstall] Forcing IPv4 only for apt...
-[2023-10-25 05:30:48-0400] [omvinstall] Updating repos before installing...
-Hit:1 http://download.proxmox.com/debian/pve bookworm InRelease
-Hit:2 https://apt.releases.hashicorp.com bookworm InRelease
-Hit:3 https://download.docker.com/linux/debian bookworm InRelease
-Hit:4 https://deb.debian.org/debian bookworm InRelease
-Hit:5 https://download.zerotier.com/debian/bookworm bookworm InRelease
-Hit:6 https://deb.debian.org/debian bookworm-updates InRelease
-Get:7 https://raw.githubusercontent.com/pimox/pimox7/master dev/ InRelease [2186 B]
-Err:8 https://enterprise.proxmox.com/debian/ceph-quincy bookworm InRelease
-  401  Unauthorized [IP: 144.217.225.162 443]
-Hit:9 https://deb.debian.org/debian-security bookworm-security InRelease
-Hit:10 https://deb.debian.org/debian bookworm-backports InRelease
-Get:11 https://pkgs.tailscale.com/stable/debian bookworm InRelease
-Hit:12 https://archive.raspberrypi.org/debian bookworm InRelease
-Hit:13 https://global.mirrors.apqa.cn/proxmox/debian/pbs bookworm InRelease
-Hit:14 https://global.mirrors.apqa.cn/proxmox/debian/pve bookworm InRelease
-Hit:15 https://mirrors.apqa.cn/proxmox/debian/pve bookworm InRelease
-Hit:16 https://global.mirrors.apqa.cn/proxmox/debian/devel bookworm InRelease
-Hit:17 https://global.mirrors.apqa.cn/proxmox/debian/kernel sid InRelease
-Reading package lists...
-E: Failed to fetch https://enterprise.proxmox.com/debian/ceph-quincy/dists/bookworm/InRelease  401  Unauthorized [IP: 144.217.225.162 443]
-E: The repository 'https://enterprise.proxmox.com/debian/ceph-quincy bookworm InRelease' is not signed.
-W: https://raw.githubusercontent.com/pimox/pimox7/master/dev/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
-[2023-10-25 05:31:03-0400] [omvinstall] Installing lsb_release...
-Reading package lists...
-Building dependency tree...
-Reading state information...
-0 upgraded, 0 newly installed, 1 reinstalled, 0 to remove and 2 not upgraded.
-debconf: delaying package configuration, since apt-utils is not installed
-Need to get 0 B/6416 B of archives.
-After this operation, 0 B of additional disk space will be used.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 83507 files and directories currently installed.)
-Preparing to unpack .../lsb-release_12.0-1_all.deb ...
-Unpacking lsb-release (12.0-1) over (12.0-1) ...
-Setting up lsb-release (12.0-1) ...
-[2023-10-25 05:31:07-0400] [omvinstall] Arch :: arm64
-[2023-10-25 05:31:07-0400] [omvinstall] Supported architecture
-[2023-10-25 05:31:07-0400] [omvinstall] Codename :: bookworm
-[2023-10-25 05:31:07-0400] [omvinstall] Unsupported version.  Only Debian 10 (Buster) and 11 (Bullseye) are supported.  Exiting...
