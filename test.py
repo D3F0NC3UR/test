@@ -45,8 +45,8 @@ elif choix_bash == "3":
 else :
  print("Choix invalide. Veuillez sélectionner une option valide.")
 
-elif choix_principal == "2":
- while True:
+ elif choix_principal == "2":
+while True:
   install_menu()
   choix_commande = input("Sélectionnez une commande prédéfinie : ")
 
