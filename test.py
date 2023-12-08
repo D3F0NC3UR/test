@@ -1,4 +1,3 @@
-#pylint:disable=C0301
 import os
 
 def afficher_menu_principal():
