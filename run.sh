@@ -1,21 +1,40 @@
 #!/bin/bash
 
+aptuu() {
+sudo apt update && sudo  apt upgrade -y
+}
+
 # Function to display the main menu.
 displayMainMenu() {
-    echo "Main Menu"
+cat << "EOF"
+ __  __ ___ _  _ _   _ 
+|  \/  | __| \| | | | |
+| |\/| | _|| .` | |_| |
+|_|  |_|___|_|\_| \___/ 
+EOF
+cat << "EOF"
+███╗   ███╗███████╗███╗   ██╗██╗   ██╗
+████╗ ████║██╔════╝████╗  ██║██║   ██║
+██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║
+██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║
+██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝
+╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝ 
+                                      
+EOF
+    echo -e "\e[1;36mMain Menu\e[0m"
     echo "---------"
-    echo "1. Submenu 1"
+    echo "1. Install Menu"
     echo "2. Submenu 2"
     echo "3. Submenu 3"
     echo "4. Exit"
     echo ""
 }
 
-# Function to display submenu 1.
-displaySubmenu1() {
-    echo "Submenu 1"
+# Function to display install menu.
+displayInstallMenu() {
+    echo "Install Menu"
     echo "---------"
-    echo "1. Run Command 1"
+    echo "1. Install Git"
     echo "2. Run Command 2"
     echo "3. Back to Main Menu"
     echo ""
@@ -45,13 +64,16 @@ displaySubmenu3() {
 runCommand1() {
     echo "Running Command 1"
     # Add your command here
-    echo ""
+aptuu
+sudo apt install git
+    echo "..."
 }
 
 # Function to run command 2.
 runCommand2() {
     echo "Running Command 2"
     # Add your command here
+runCommand1
     echo ""
 }
 
@@ -89,7 +111,7 @@ handleUserInput() {
 
     case "$choice" in
         1)
-            displaySubmenu1
+            displayInstallMenu
             read -p "Enter your choice: " submenuChoice
             handleSubmenu1Input "$submenuChoice"
             ;;
