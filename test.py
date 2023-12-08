@@ -2,7 +2,7 @@ import os
 
 def afficher_menu_principal():
 print("1. Exécuter des scripts Bash")
-print("2. cmd")
+print("2. Install Menu")
 print("3. Quitter")
 
 def afficher_sous_menu_bash():
@@ -17,9 +17,9 @@ os.system(script)
 def executer_commande_terminal(commande):
 os.system(commande)
 
-def afficher_sous_menu_commandes():
+def install_menu():
 print("Sous-menu - Commandes prédéfinies:")
-print("1. Commande 1")
+print("1. install")
 print("2. Commande 2")
 print("3. Retour au menu principal")
 
@@ -47,7 +47,7 @@ print("Choix invalide. Veuillez sélectionner une option valide.")
 
 elif choix_principal == "2":
 while True:
-afficher_sous_menu_commandes()
+install_menu()
 choix_commande = input("Sélectionnez une commande prédéfinie : ")
 
 if choix_commande == "1":
@@ -63,7 +63,7 @@ else :
 print("Choix invalide. Veuillez sélectionner une option valide.")
 
 elif choix_principal == "3":
-print("Au revoir !")
+print("bye !")
 break
 
 else :
@@ -71,3 +71,4 @@ print("Choix invalide. Veuillez sélectionner une option valide.")
 
 if __name__ == "__main__":
 main()
+
