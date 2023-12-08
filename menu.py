@@ -5,25 +5,25 @@ def afficher_menu_principal():
     print("2. Install Menu")
     print("3. Quitter")
     
-    def afficher_sous_menu_bash():
+def afficher_sous_menu_bash():
         print("Sous-menu - Scripts Bash:")
         print("1. Script 1")
         print("2. Script 2")
         print("3. Retour au menu principal")
         
-        def executer_script_bash(script):
+def executer_script_bash(script):
             os.system(script)
             
-            def executer_commande_terminal(commande):
+def executer_commande_terminal(commande):
                 os.system(commande)
                 
-                def install_menu():
+def install_menu():
                     print("Sous-menu - Commandes prédéfinies:")
                     print("1. install")
                     print("2. Commande 2")
                     print("3. Retour au menu principal")
                     
-                    def main():
+def main():
                         while True:
                             afficher_menu_principal()
                             choix_principal = input("Sélectionnez une option : ")
