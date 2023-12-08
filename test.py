@@ -1,60 +1,76 @@
-import sys
+#pylint:disable=C0301
 
-from consolemenu import *
-from consolemenu.items import *
+import os
 
+def afficher_menu_principal():
+    print("1. Exécuter des scripts Bash")
+    print("2. cmd")
+    print("3. Quitter")
 
-def input_handler():
-    pu = PromptUtils(Screen())
-    # PromptUtils.input() returns an InputResult
-    result = pu.input("Enter an input")
-    pu.println("\nYou entered:", result.input_string, "\n")
-    pu.enter_to_continue()
+def afficher_sous_menu_bash():
+    print("Sous-menu - Scripts Bash:")
+    print("1. Script 1")
+    print("2. Script 2")
+    print("3. Retour au menu principal")
 
+def executer_script_bash(script):
+    os.system(script)
+
+def executer_commande_terminal(commande):
+    os.system(commande)
+
+def afficher_sous_menu_commandes():
+    print("Sous-menu - Commandes prédéfinies:")
+    print("1. Commande 1")
+    print("2. Commande 2")
+    print("3. Retour au menu principal")
 
 def main():
-    # Create the root menu
-    menu = ConsoleMenu("Root Menu", "This is the Root Menu Subtitle")
+    while True:
+        afficher_menu_principal()
+        choix_principal = input("Sélectionnez une option : ")
 
-    item1 = MenuItem("Item 1")
+        if choix_principal == "1":
+            while True:
+                afficher_sous_menu_bash()
+                choix_bash = input("Sélectionnez un script Bash : ")
 
-    # Create a menu item that calls a function
-    function_item = FunctionItem("Fun item", input_handler)
+                if choix_bash == "1":
+                    executer_script_bash("bash_script_1.sh")
 
-    # Create a menu item that calls a system command, based on OS type
-    if sys.platform.startswith('win'):
-        command_item = CommandItem("Command", 'cmd /c \"echo this is a shell. Press enter to continue." && set /p=\"')
-    else:
-        command_item = CommandItem("Command", 'sh -c \'echo "this is a shell. Press enter to continue."; read\'')
+                elif choix_bash == "2":
+                    executer_script_bash("bash_script_2.sh")
 
-    # Create a submenu using a Selection Menu, which takes a list of strings to create the menu items.
-    submenu = SelectionMenu(["item1", "item2", "item3"], title="Selection Menu",
-                            subtitle="These menu items return to the previous menu")
+                elif choix_bash == "3":
+                    break
 
-    # Create the menu item that opens the Selection submenu
-    submenu_item = SubmenuItem("Submenu item", submenu=submenu)
-    submenu_item.set_menu(menu)
+                else:
+                    print("Choix invalide. Veuillez sélectionner une option valide.")
 
-    # Create a second submenu, but this time use a standard ConsoleMenu instance
-    submenu_2 = ConsoleMenu("Another Submenu Title", "Submenu subtitle.")
-    function_item_2 = FunctionItem("Fun item", Screen().input, ["Enter an input: "])
-    item2 = MenuItem("Another Item")
-    submenu_2.append_item(function_item_2)
-    submenu_2.append_item(item2)
-    submenu_item_2 = SubmenuItem("Another submenu", submenu=submenu_2)
-    submenu_item_2.set_menu(menu)
+        elif choix_principal == "2":
+            while True:
+                afficher_sous_menu_commandes()
+                choix_commande = input("Sélectionnez une commande prédéfinie : ")
 
-    # Add all the items to the root menu
-    menu.append_item(item1)
-    menu.append_item(function_item)
-    menu.append_item(command_item)
-    menu.append_item(submenu_item)
-    menu.append_item(submenu_item_2)
+                if choix_commande == "1":
+                	            executer_commande_terminal("sudo apt update && apt upgrade -y && apt install git")
+                
+                elif choix_commande == "2":
+                    executer_commande_terminal("commande_2")
 
-    # Show the menu
-    menu.start()
-    menu.join()
+                elif choix_commande == "3":
+                    break
 
+                else:
+                    print("Choix invalide. Veuillez sélectionner une option valide.")
+
+        elif choix_principal == "3":
+            print("Au revoir !")
+            break
+
+        else:
+            print("Choix invalide. Veuillez sélectionner une option valide.")
 
 if __name__ == "__main__":
     main()
+    
