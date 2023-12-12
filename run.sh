@@ -54,19 +54,18 @@ displaySubmenu3() {
     echo ""
 }
 
-# Function to run command 1.
-runCommand1() {
+#######################################
+#INSTALL COMMAND
+#######################################
+install_git() {
     echo "Running Command 1"
-    # Add your command here
 aptuu
 sudo apt install git
     echo "..."
 }
 
-# Function to run command 2.
 runCommand2() {
     echo "Running Command 2"
-    # Add your command here
 aptuu
 curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
 curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
@@ -140,7 +139,7 @@ handleSubmenu1Input() {
 
     case "$choice" in
         1)
-            runCommand1
+            install_git
             ;;
         2)
             runCommand2
