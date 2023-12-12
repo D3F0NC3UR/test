@@ -7,12 +7,6 @@ sudo apt update && sudo  apt upgrade -y
 # Function to display the main menu.
 displayMainMenu() {
 cat << "EOF"
- __  __ ___ _  _ _   _ 
-|  \/  | __| \| | | | |
-| |\/| | _|| .` | |_| |
-|_|  |_|___|_|\_| \___/ 
-EOF
-cat << "EOF"
 ███╗   ███╗███████╗███╗   ██╗██╗   ██╗
 ████╗ ████║██╔════╝████╗  ██║██║   ██║
 ██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║
@@ -34,9 +28,9 @@ EOF
 displayInstallMenu() {
     echo "Install Menu"
     echo "---------"
-    echo "1. Install Git"
-    echo "2. Run Command 2"
-    echo "3. Back to Main Menu"
+    echo "1. Git"
+    echo "2. Tailscale"
+    echo "0. Back to Main Menu"
     echo ""
 }
 
@@ -73,7 +67,12 @@ sudo apt install git
 runCommand2() {
     echo "Running Command 2"
     # Add your command here
-runCommand1
+aptuu
+curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+sudo apt update
+sudo apt install tailscale
+echo("succes")
     echo ""
 }
 
@@ -146,7 +145,7 @@ handleSubmenu1Input() {
         2)
             runCommand2
             ;;
-        3)
+        0)
             displayMainMenu
             read -p "Enter your choice: " mainMenuChoice
             handleUserInput "$mainMenuChoice"
