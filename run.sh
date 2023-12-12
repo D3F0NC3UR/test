@@ -57,6 +57,8 @@ displaySubmenu3() {
 #######################################
 #INSTALL COMMAND
 #######################################
+
+##INSTALL GIT
 install_git() {
     echo "Running Command 1"
 aptuu
@@ -64,6 +66,7 @@ sudo apt install git
     echo "..."
 }
 
+##INSTALL TAILSCALE
 runCommand2() {
     echo "Running Command 2"
 aptuu
@@ -71,7 +74,7 @@ curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg | sudo 
 curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
 sudo apt update
 sudo apt install tailscale
-echo"succes"
+    echo"succes"
     echo ""
 }
 
