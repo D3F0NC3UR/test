@@ -1,5 +1,9 @@
 #!/bin/bash
 
+is_package_installed() {
+dpkg -s $1 &> /dev/null
+}
+
 aptuu() {
 sudo apt update && sudo  apt upgrade -y
 }
@@ -28,10 +32,10 @@ EOF
 displayInstallMenu() {
     echo "Install Menu"
     echo "---------"
-    echo "1. Git"
+    echo "1." echo(package_names=("Git"))
     echo "2. Tailscale"
     echo "0. Back to Main Menu"
-    echo ""
+    echo package_names
 }
 
 # Function to display submenu 2.
@@ -59,7 +63,7 @@ displaySubmenu3() {
 #######################################
 
 ##INSTALL GIT
-install_git() {
+git() {
     echo "Running Command 1"
 aptuu
 sudo apt install git
@@ -142,7 +146,7 @@ handleSubmenu1Input() {
 
     case "$choice" in
         1)
-            install_git
+            git
             ;;
         2)
             runCommand2
