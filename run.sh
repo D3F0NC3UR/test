@@ -1,4 +1,12 @@
 #!/bin/bash
+installed_packages() {
+installed_packages=$(dpkg --get-selections | grep -v deinstall | cut -f1)
+for package in $installed_packages;
+do
+  echo $package
+done
+}
+
 
 is_package_installed() {
 dpkg -s $1 &> /dev/null
