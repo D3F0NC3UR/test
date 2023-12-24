@@ -55,7 +55,8 @@ displayInstallMenu() {
     echo "1. Git"
     echo "2. Tailscale"
     echo "0. Back to Main Menu"
-    read -p "Enter your choice: " packageChoicehandleInstallMenuInput "$packageChoice"
+    read -p "Enter your choice: " packageChoice
+    handleInstallMenuInput "$packageChoice"
 }
 
 # Function to display submenu 2.
