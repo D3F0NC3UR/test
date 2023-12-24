@@ -41,10 +41,23 @@ EOF
 displayInstallMenu() {
     echo "Install Menu"
     echo "---------"
+
+    # Loop through package_names and print colored names
+    for package in "${package_names[@]}"; do
+        is_package_installed "$package"
+        if [ $? -eq 0 ]; then
+            echo -e "\e[32m$package\e[0m" # Green color for installed package
+        else
+            echo -e "\e[31m$package\e[0m" # Red color for not-installed package
+        fi
+    done
+
     echo "1. Git"
     echo "2. Tailscale"
     echo "0. Back to Main Menu"
-    echo package_names
+    read -p "Enter your choice: " packageChoice
+
+    handleInstallMenuInput "$packageChoice"
 }
 
 # Function to display submenu 2.
