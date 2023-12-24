@@ -4,7 +4,7 @@ is_package_installed() {
 dpkg -s $1 &> /dev/null
 }
 
-echo is_package_installed
+echo(is_package_installed())
 
 aptuu() {
 sudo apt update && sudo  apt upgrade -y
