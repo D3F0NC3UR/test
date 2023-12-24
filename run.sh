@@ -4,6 +4,8 @@ is_package_installed() {
 dpkg -s $1 &> /dev/null
 }
 
+echo is_package_installed
+
 aptuu() {
 sudo apt update && sudo  apt upgrade -y
 }
@@ -32,7 +34,7 @@ EOF
 displayInstallMenu() {
     echo "Install Menu"
     echo "---------"
-    echo "1." echo(package_names=("Git"))
+    echo "1. Git"
     echo "2. Tailscale"
     echo "0. Back to Main Menu"
     echo package_names
