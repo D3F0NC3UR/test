@@ -34,6 +34,7 @@ EOF
     echo "3. Submenu 3"
     echo "4. Exit"
     echo ""
+    echo $installed_packages
 }
 
 # Function to display install menu.
