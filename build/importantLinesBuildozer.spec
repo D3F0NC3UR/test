@@ -12,4 +12,4 @@ package.domain = com.d3f0nc3ur
 requirements = python3,kivy, kivymd
 
 # (list) Permissions
-android.permissions = INTERNET <commnet, uncomment depending upon use case>
+android.permissions = INTERNET
